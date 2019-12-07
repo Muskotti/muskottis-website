@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { makeStyles } from '@material-ui/core/styles';
-import { Toolbar, IconButton, Typography, Button, AppBar, Menu, MenuItem } from '@material-ui/core';
+import { Toolbar, IconButton, Typography, AppBar, Menu, MenuItem } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles(theme => ({
@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function ButtonAppBar() {
+export default function Header() {
     const classes = useStyles();
 
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -42,9 +42,9 @@ export default function ButtonAppBar() {
                             open={Boolean(anchorEl)}
                             onClose={handleClose}
                         >
-                            <MenuItem onClick={handleClose}>Iconi rakentaja</MenuItem>
-                            <MenuItem onClick={handleClose}>Portfolio</MenuItem>
                             <MenuItem onClick={handleClose}>Minä</MenuItem>
+                            <MenuItem onClick={handleClose}>Portfolio</MenuItem>
+                            <MenuItem onClick={handleClose}>Iconi rakentaja</MenuItem>
                         </Menu>
                     </IconButton>
                     <Typography variant="h6" className={classes.title}>
