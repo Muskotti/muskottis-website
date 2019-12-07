@@ -1,15 +1,46 @@
 import React from 'react';
-import './App.css';
 import Header from "./Header";
 import Mina from "./Mina";
 import 'typeface-roboto';
+import MyTabs from './MyTabs';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
-export default function ButtonAppBar() {
+export default class App extends React.Component {
 
-  return (
+  state = {
+    type: 'dark',
+  }
+
+  constructor(props) {
+    super(props)
+  }
+
+  changeTheme() {
+    this.setState({
+      type: 'light'
+    })
+  }
+
+  render() {
+
+    const theme = createMuiTheme({
+      palette: {
+        type: this.state.type,
+        primary: {main: "#80deea"},
+        secondary: {main:"#f06292"},
+      }
+    });
+
+    return (
       <div>
-        <Header/>
-        <Mina/>
+        <ThemeProvider theme={theme}>
+          <CssBaseline/>
+          <Header />
+          <Mina/>
+          <MyTabs/>
+        </ThemeProvider>
       </div>
-  );
+    );
+  }
 }

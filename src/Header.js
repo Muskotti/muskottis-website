@@ -1,57 +1,69 @@
 import React from 'react';
-import './App.css';
 import { makeStyles } from '@material-ui/core/styles';
-import { Toolbar, IconButton, Typography, AppBar, Menu, MenuItem } from '@material-ui/core';
+import { Toolbar, IconButton, Typography, AppBar, Menu, MenuItem, Switch} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles(theme => ({
-    root: {
-        flexGrow: 1,
-    },
-    menuButton: {
-        marginRight: theme.spacing(2),
-    },
-    title: {
-        flexGrow: 1,
-    },
+  root: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+  },
 }));
 
-export default function Header() {
-    const classes = useStyles();
+export default class Header extends React.Component {
 
-    const [anchorEl, setAnchorEl] = React.useState(null);
+  state = {
+    setAnchorEl: null
+  }
 
-    const handleClick = event => {
-        setAnchorEl(event.currentTarget);
-    };
+  handleClick = event => {
+    this.setState({
+      setAnchorEl: event.currentTarget
+    })
+  };
 
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
+  handleClose = () => {
+    this.setState({
+      setAnchorEl: null
+    })
+  };
+
+  handleChange = name => event => {
+    console.log(name);
+  };
+
+  render() {
 
     return (
-        <div className={classes.root}>
-            <AppBar position="static" color="inherit" elevation={0}>
-                <Toolbar>
-                    <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-                        <MenuIcon onClick={handleClick} />
-                        <Menu
-                            id="simple-menu"
-                            anchorEl={anchorEl}
-                            keepMounted
-                            open={Boolean(anchorEl)}
-                            onClose={handleClose}
-                        >
-                            <MenuItem onClick={handleClose}>Minä</MenuItem>
-                            <MenuItem onClick={handleClose}>Portfolio</MenuItem>
-                            <MenuItem onClick={handleClose}>Iconi rakentaja</MenuItem>
-                        </Menu>
-                    </IconButton>
-                    <Typography variant="h6" className={classes.title}>
-                        PalkaaToni.fi
-                    </Typography>
-                </Toolbar>
-            </AppBar>
-        </div>
+      <div className={useStyles.root}>
+        <AppBar position="static" color="primary" elevation={0}>
+          <Toolbar>
+            <IconButton edge="start" className={useStyles.menuButton} color="inherit" aria-label="menu">
+              <MenuIcon ref={"menu"} onClick={this.handleClick} />
+              <Menu
+                id="simple-menu"
+                anchorEl={this.refs.menu}
+                keepMounted
+                open={this.state.setAnchorEl}
+                onClose={this.handleClose}
+              >
+                <MenuItem onClick={this.handleClose}>Minä</MenuItem>
+                <MenuItem onClick={this.handleClose}>Portfolio</MenuItem>
+                <MenuItem onClick={this.handleClose}>Iconi rakentaja</MenuItem>
+              </Menu>
+            </IconButton>
+            <Typography variant="h6" className={useStyles.title}>
+              PalkkaaToni.fi
+            </Typography>
+            <Switch onChange={this.handleChange()} value={true}/>
+          </Toolbar>
+        </AppBar>
+      </div>
     );
+  }
 }
