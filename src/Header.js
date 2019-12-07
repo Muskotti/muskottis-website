@@ -1,6 +1,6 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { Toolbar, IconButton, Typography, AppBar, Menu, MenuItem, Switch} from '@material-ui/core';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { Toolbar, IconButton, Typography, AppBar, Menu, MenuItem, Switch, Grid, Button} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles(theme => ({
@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default class Header extends React.Component {
+class Header extends React.Component {
 
   state = {
     setAnchorEl: null
@@ -34,36 +34,51 @@ export default class Header extends React.Component {
   };
 
   handleChange = name => event => {
-    console.log(name);
+    this.props.changeTheme();
   };
 
   render() {
-
+    const { classes } = this.props;
     return (
-      <div className={useStyles.root}>
-        <AppBar position="static" color="primary" elevation={0}>
+      <div className={classes.root}>
+        <AppBar position="static">
           <Toolbar>
-            <IconButton edge="start" className={useStyles.menuButton} color="inherit" aria-label="menu">
-              <MenuIcon ref={"menu"} onClick={this.handleClick} />
-              <Menu
-                id="simple-menu"
-                anchorEl={this.refs.menu}
-                keepMounted
-                open={this.state.setAnchorEl}
-                onClose={this.handleClose}
-              >
-                <MenuItem onClick={this.handleClose}>Minä</MenuItem>
-                <MenuItem onClick={this.handleClose}>Portfolio</MenuItem>
-                <MenuItem onClick={this.handleClose}>Iconi rakentaja</MenuItem>
-              </Menu>
-            </IconButton>
-            <Typography variant="h6" className={useStyles.title}>
-              PalkkaaToni.fi
-            </Typography>
-            <Switch onChange={this.handleChange()} value={true}/>
+            <Grid container style={{flexDirection: "row", justifyContent: "space-between"}}>
+              <Grid item>
+                <IconButton edge="start" className={useStyles.menuButton} color="inherit" aria-label="menu">
+                  <MenuIcon ref={"menu"} onClick={this.handleClick} />
+                  <Menu
+                    id="simple-menu"
+                    anchorEl={this.refs.menu}
+                    keepMounted
+                    open={this.state.setAnchorEl}
+                    onClose={this.handleClose}
+                  >
+                    <MenuItem onClick={this.handleClose}>Minä</MenuItem>
+                    <MenuItem onClick={this.handleClose}>Portfolio</MenuItem>
+                    <MenuItem onClick={this.handleClose}>Iconi rakentaja</MenuItem>
+                  </Menu>
+                </IconButton>
+              </Grid>
+              <Grid item>
+                <Typography component="div" style={{padding: 6}}>
+                  <Grid component="label" container alignItems="center" spacing={1}>
+                    <Grid item>Dark</Grid>
+                    <Grid item>
+                      <Switch
+                        onChange={this.handleChange()}
+                      />
+                    </Grid>
+                    <Grid item>Light</Grid>
+                  </Grid>
+                </Typography>
+              </Grid>
+            </Grid>
           </Toolbar>
         </AppBar>
       </div>
     );
   }
 }
+
+export default withStyles(useStyles, { withTheme: true })(Header);

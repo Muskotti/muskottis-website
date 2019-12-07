@@ -9,24 +9,24 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 export default class App extends React.Component {
 
   state = {
-    type: 'dark',
+    check: true,
   }
 
   constructor(props) {
     super(props)
   }
 
-  changeTheme() {
-    this.setState({
-      type: 'light'
-    })
+  changeTheme = () => {
+    this.setState(prevState => ({
+      check: !prevState.check
+    }));
   }
 
   render() {
 
     const theme = createMuiTheme({
       palette: {
-        type: this.state.type,
+        type: this.state.check ? 'dark' : 'light',
         primary: {main: "#80deea"},
         secondary: {main:"#f06292"},
       }
@@ -36,7 +36,7 @@ export default class App extends React.Component {
       <div>
         <ThemeProvider theme={theme}>
           <CssBaseline/>
-          <Header />
+          <Header changeTheme={this.changeTheme}/>
           <Mina/>
           <MyTabs/>
         </ThemeProvider>
