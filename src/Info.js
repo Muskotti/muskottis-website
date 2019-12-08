@@ -1,9 +1,7 @@
 import React from 'react';
-import {Typography, CardContent, CardMedia, CardActions, IconButton, List, ListItem, ListItemIcon, ListItemText} from "@material-ui/core";
-import Tamk from "./images/TRE_LB14_AMK____fi_B3__NEGA.png";
+import {Typography, CardContent, CardMedia, List, ListItem, ListItemIcon, ListItemText} from "@material-ui/core";
+import Tamk from "./images/TRE_LA22_AMK____fi_B3___RGB.png";
 import Luksia from "./images/Luksia-logo-vaaka-musta.jpg"
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import GitHubIcon from '@material-ui/icons/GitHub';
 import SportsIcon from '@material-ui/icons/Sports';
 import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
 import GroupIcon from '@material-ui/icons/Group';
@@ -33,32 +31,30 @@ export default class Info extends React.Component {
           <Typography variant="body2" component="p">
             Harrastuksia:
           </Typography>
-          <Typography variant="body2" component="p" style={{paddingBottom: 12}}>
-            <List>
-              <ListItem>
-                <ListItemIcon>
-                  <GroupIcon/>
-                </ListItemIcon>
-                <ListItemText primary="Lautapelit"/>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon>
-                  <SportsIcon/>
-                </ListItemIcon>
-                <ListItemText primary="Salilla käynti"/>
-              </ListItem>
-              <ListItem>
-                <ListItemIcon>
-                  <SportsEsportsIcon/>
-                </ListItemIcon>
-                <ListItemText primary="Pelaaminen"/>
-              </ListItem>
-            </List>
-          </Typography>
+          <List>
+            <ListItem>
+              <ListItemIcon>
+                <GroupIcon/>
+              </ListItemIcon>
+              <ListItemText primary="Lautapelit"/>
+            </ListItem>
+            <ListItem>
+              <ListItemIcon>
+                <SportsIcon/>
+              </ListItemIcon>
+              <ListItemText primary="Salilla käynti"/>
+            </ListItem>
+            <ListItem>
+              <ListItemIcon>
+                <SportsEsportsIcon/>
+              </ListItemIcon>
+              <ListItemText primary="Pelaaminen"/>
+            </ListItem>
+          </List>
           <Typography variant="body2" component="p">
             Opinnot:
             <br/>
-            <a href='https://www.tuni.fi'><img src={Tamk} alt="Tamk logo" style={{width: '100%'}}/></a>
+            <a href='https://www.tuni.fi'><img src={Tamk} alt="Tamk logo" style={{width: '100%', background: 'white'}}/></a>
             <br/>
             <a href='https://www.luksia.fi'><img src={Luksia} alt="Luksia logo" style={{width: '100%'}}/></a>
           </Typography>

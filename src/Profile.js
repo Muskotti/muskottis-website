@@ -1,5 +1,5 @@
 import React from 'react';
-import {Typography, Card, Grid, Box, CardContent} from "@material-ui/core";
+import {Card, Grid, Box} from "@material-ui/core";
 import Info from "./Info"
 import Contact from "./Contact";
 
@@ -23,27 +23,7 @@ class Profile extends React.Component {
             </Grid>
             <Grid item>
               <Card style={style}>
-                <CardContent>
-                  <Contact/>
-                </CardContent>
-              </Card>
-            </Grid>
-            <Grid item>
-              <Card style={style}>
-                <CardContent>
-                  <Typography>
-                    tekstiä
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-            <Grid item>
-              <Card style={style}>
-                <CardContent>
-                  <Typography>
-                    tekstiä
-                  </Typography>
-                </CardContent>
+                <Contact/>
               </Card>
             </Grid>
           </Grid>
