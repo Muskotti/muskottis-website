@@ -39,6 +39,12 @@ export default class Contact extends React.Component {
                 </ListItemIcon>
                 <ListItemText primary="toni.vanttinen@dnainternet.net"/>
               </ListItem>
+              <ListItem>
+                <ListItemIcon>
+                  <EmailIcon color="primary"/>
+                </ListItemIcon>
+                <ListItemText primary="toni@palkkaatoni.fi"/>
+              </ListItem>
               <Divider />
               <ListItem button onClick={ () => window.open('https://discordapp.com/users/Muskotti#2841/')}>
                 <ListItemIcon>
