@@ -12,10 +12,6 @@ export default class App extends React.Component {
     check: true,
   }
 
-  constructor(props) {
-    super(props)
-  }
-
   changeTheme = () => {
     this.setState(prevState => ({
       check: !prevState.check

@@ -17,19 +17,22 @@ const useStyles = makeStyles(theme => ({
 
 class Header extends React.Component {
 
-  state = {
-    setAnchorEl: null
+  constructor(props) {
+    super(props);
+    this.state = {
+      setAnchorEl: false,
+    };
   }
 
   handleClick = event => {
     this.setState({
-      setAnchorEl: event.currentTarget
+      setAnchorEl: true
     })
   };
 
   handleClose = () => {
     this.setState({
-      setAnchorEl: null
+      setAnchorEl: false
     })
   };
 
@@ -45,8 +48,9 @@ class Header extends React.Component {
           <Toolbar>
             <Grid container style={{flexDirection: "row", justifyContent: "space-between"}}>
               <Grid item>
-                <IconButton edge="start" className={useStyles.menuButton} color="inherit" aria-label="menu">
-                  <MenuIcon ref={"menu"} onClick={this.handleClick} />
+                <IconButton edge="start" ref={"menu"} color={"inherit"} onClick={this.handleClick} className={classes.menuButton} >
+                  <MenuIcon/>
+                </IconButton>
                   <Menu
                     id="simple-menu"
                     anchorEl={this.refs.menu}
@@ -58,7 +62,6 @@ class Header extends React.Component {
                     <MenuItem onClick={this.handleClose}>Portfolio</MenuItem>
                     <MenuItem onClick={this.handleClose}>Iconi rakentaja</MenuItem>
                   </Menu>
-                </IconButton>
               </Grid>
               <Grid item>
                 <Typography component="div" style={{padding: 6}}>
