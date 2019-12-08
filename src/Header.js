@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
-import { Toolbar, IconButton, Typography, AppBar, Menu, MenuItem, Switch, Grid, Button} from '@material-ui/core';
+import { Toolbar, IconButton, Typography, AppBar, Menu, MenuItem, Switch, Grid} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles(theme => ({

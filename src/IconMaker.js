@@ -9,7 +9,11 @@ export default class IconMaker extends React.Component {
       <Typography
         component="div"
       >
-        {this.props.value === this.props.index && <Box p={3}>{this.props.index}</Box>}
+        {this.props.value === this.props.index && <Box>
+          <Typography variant="h1" align={"center"} style={{paddingTop: 100}}>
+            Coming soon!
+          </Typography>
+        </Box>}
       </Typography>
     );
   }
