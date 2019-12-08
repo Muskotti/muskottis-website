@@ -1,5 +1,5 @@
 import React from 'react';
-import {CardContent, Divider, Typography, CardActions, IconButton} from "@material-ui/core";
+import {CardContent, Divider, Typography, CardActions, IconButton, Box} from "@material-ui/core";
 import Icon from '@mdi/react'
 import { mdiLanguageJava  } from '@mdi/js'
 import { mdiLanguageJavascript } from '@mdi/js';
@@ -60,18 +60,18 @@ export default class PortfolioItem extends React.Component {
     if(this.props.value === this.props.index) {
       return (
         <CardContent style={{padding: 0}}>
-          <div style={{padding: 12}}>
-            <Typography gutterBottom variant="h5" component="h2" style={{textAlign: "center", minHeight: 70}}>
-              {this.props.name}
-            </Typography>
-            <div align={'center'}>
-              <Icon path={this.state.icon}
-                    title="User Profile"
-                    size={5}
-                    color="#80deea"
-              />
-            </div>
-            <Divider style={{marginBottom: 12}} />
+          <Typography gutterBottom variant="h5" component="h2" style={{marginTop: 24, textAlign: "center", minHeight: 70}}>
+            {this.props.name}
+          </Typography>
+          <div align={'center'} style={{marginBottom: 36}}>
+            <Icon path={this.state.icon}
+                  title="User Profile"
+                  size={5}
+                  color="#80deea"
+            />
+          </div>
+          <Divider style={{marginBottom: 12,}} />
+          <div style={{marginLeft: 12, minHeight: 125}}>
             <Typography variant="body2" color="textSecondary" component="p" style={{paddingBottom: 12}}>
               {this.state.date}
             </Typography>
@@ -81,12 +81,12 @@ export default class PortfolioItem extends React.Component {
             <Typography variant="body2" color="textSecondary" component="p" style={{paddingBottom: 12}}>
               {this.props.description}
             </Typography>
-            <CardActions style={{flexDirection: "row-reverse"}}>
-              <IconButton onClick={()=> window.open("https://www.google.com")}>
-                <GitHubIcon/>
-              </IconButton>
-            </CardActions>
           </div>
+          <CardActions disableSpacing style={{flexDirection: "row-reverse"}}>
+            <IconButton onClick={()=> window.open(this.props.link)}>
+              <GitHubIcon/>
+            </IconButton>
+          </CardActions>
         </CardContent>
       );
     }

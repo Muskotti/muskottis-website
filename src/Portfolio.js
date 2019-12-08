@@ -5,7 +5,6 @@ import PortfolioItem from "./PortfolioItem";
 const style = {
   maxWidth: 345,
   minWidth: 345,
-  minHeight: 345,
 }
 
 export default class Portfolio extends React.Component {
@@ -38,7 +37,7 @@ export default class Portfolio extends React.Component {
               return (
                 <Grid item key={data.id}>
                   <Card style={style}>
-                    <PortfolioItem name={data.name} language={data.language} description={data.description} date={data.created_at}/>
+                    <PortfolioItem name={data.name} language={data.language} description={data.description} date={data.created_at} link={data.html_url}/>
                   </Card>
                 </Grid>
               )
