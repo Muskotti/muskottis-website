@@ -34,19 +34,19 @@ export default class Info extends React.Component {
           <List>
             <ListItem>
               <ListItemIcon>
-                <GroupIcon/>
+                <GroupIcon color={"secondary"}/>
               </ListItemIcon>
               <ListItemText primary="Lautapelit"/>
             </ListItem>
             <ListItem>
               <ListItemIcon>
-                <SportsIcon/>
+                <SportsIcon color={"secondary"}/>
               </ListItemIcon>
               <ListItemText primary="Salilla käynti"/>
             </ListItem>
             <ListItem>
               <ListItemIcon>
-                <SportsEsportsIcon/>
+                <SportsEsportsIcon color={"secondary"}/>
               </ListItemIcon>
               <ListItemText primary="Pelaaminen"/>
             </ListItem>

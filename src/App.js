@@ -10,6 +10,13 @@ export default class App extends React.Component {
 
   state = {
     check: true,
+    tab: 0,
+  }
+
+  changeTab = (number) => {
+    this.setState({
+      tab: number
+    })
   }
 
   changeTheme = () => {
@@ -32,9 +39,9 @@ export default class App extends React.Component {
       <div>
         <ThemeProvider theme={theme}>
           <CssBaseline/>
-          <Header changeTheme={this.changeTheme}/>
+          <Header changeTheme={this.changeTheme} changeTab={this.changeTab}/>
           <Mina/>
-          <MyTabs/>
+          <MyTabs tab={this.state.tab} changeTab={this.changeTab}/>
         </ThemeProvider>
       </div>
     );

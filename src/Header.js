@@ -30,7 +30,8 @@ class Header extends React.Component {
     })
   };
 
-  handleClose = () => {
+  handleClose = (event) => {
+    this.props.changeTab(event)
     this.setState({
       setAnchorEl: false
     })
@@ -44,7 +45,7 @@ class Header extends React.Component {
     const { classes } = this.props;
     return (
       <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar position={"fixed"}>
           <Toolbar>
             <Grid container style={{flexDirection: "row", justifyContent: "space-between"}}>
               <Grid item>
@@ -58,9 +59,9 @@ class Header extends React.Component {
                     open={this.state.setAnchorEl}
                     onClose={this.handleClose}
                   >
-                    <MenuItem onClick={this.handleClose}>Minä</MenuItem>
-                    <MenuItem onClick={this.handleClose}>Portfolio</MenuItem>
-                    <MenuItem onClick={this.handleClose}>Iconi rakentaja</MenuItem>
+                    <MenuItem onClick={ () => this.handleClose(0)}>Minä</MenuItem>
+                    <MenuItem onClick={() => this.handleClose(1)}>Portfolio</MenuItem>
+                    <MenuItem onClick={() => this.handleClose(2)}>Iconi rakentaja</MenuItem>
                   </Menu>
               </Grid>
               <Grid item>

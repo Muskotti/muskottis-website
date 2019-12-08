@@ -84,7 +84,7 @@ export default class PortfolioItem extends React.Component {
           </div>
           <CardActions disableSpacing style={{flexDirection: "row-reverse"}}>
             <IconButton onClick={()=> window.open(this.props.link)}>
-              <GitHubIcon/>
+              <GitHubIcon color="primary"/>
             </IconButton>
           </CardActions>
         </CardContent>

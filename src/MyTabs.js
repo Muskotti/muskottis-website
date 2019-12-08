@@ -13,37 +13,20 @@ const useStyles = makeStyles(theme => ({
 
 class MyTabs extends React.Component {
 
-  state = {
-    value: 0
-  }
-
-  handleChange = (event, newValue) => {
-    this.setState({
-      value: newValue
-    })
-  };
-
-  setProps = index => {
-    return {
-      id: `simple-tab-${index}`,
-      'aria-controls': `simple-tabpanel-${index}`,
-    };
-  }
-
   render() {
     const { classes } = this.props;
     return (
       <div className={classes.root}>
         <AppBar position="static" color="inherit" elevation={0}>
-          <Tabs value={this.state.value} onChange={this.handleChange} centered>
-            <Tab label="Minä" {...this.setProps(0)}/>
-            <Tab label="Portfolio" {...this.setProps(1)}/>
-            <Tab label="Iconi rakentaja" {...this.setProps(2)}/>
+          <Tabs value={this.props.tab} onChange={(event, value) => this.props.changeTab(value)} centered>
+            <Tab label="Minä"/>
+            <Tab label="Portfolio"/>
+            <Tab label="Iconi rakentaja"/>
           </Tabs>
         </AppBar>
-        <Profile index={0} value={this.state.value}/>
-        <Portfolio index={1} value={this.state.value}/>
-        <IconMaker index={2} value={this.state.value}/>
+        <Profile index={0} value={this.props.tab}/>
+        <Portfolio index={1} value={this.props.tab}/>
+        <IconMaker index={2} value={this.props.tab}/>
       </div>
     );
   }
