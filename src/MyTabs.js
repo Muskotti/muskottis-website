@@ -42,7 +42,7 @@ class MyTabs extends React.Component {
           </Tabs>
         </AppBar>
         <Profile index={0} value={this.state.value}/>
-        <Portfolio index={1} value={this.state.value}/>
+        <Portfolio index={1} value={this.state.value} data={this.props.data}/>
         <IconMaker index={2} value={this.state.value}/>
       </div>
     );

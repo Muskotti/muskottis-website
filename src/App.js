@@ -34,7 +34,7 @@ export default class App extends React.Component {
           <CssBaseline/>
           <Header changeTheme={this.changeTheme}/>
           <Mina/>
-          <MyTabs/>
+          <MyTabs repos={this.state.data}/>
         </ThemeProvider>
       </div>
     );

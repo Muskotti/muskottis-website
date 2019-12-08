@@ -29,7 +29,6 @@ class Profile extends React.Component {
           </Grid>
         </div>
       )
-
     }
     return (
       null

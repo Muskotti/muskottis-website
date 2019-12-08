@@ -13,7 +13,7 @@ export default class Info extends React.Component {
         <CardMedia
           style={{height: 240}}
           image={"https://media.giphy.com/media/IThjAlJnD9WNO/source.gif"}
-          title="Kuva tonista"
+          title="Tervehtivä karhu"
         />
         <div style={{padding: 12}}>
           <Typography gutterBottom variant="h5" component="h2">
