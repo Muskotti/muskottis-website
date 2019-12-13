@@ -13,7 +13,7 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
-import PDF from './images/Toni_Vänttinen_CV.pdf'
+import PDF from './images/Toni_Vanttinen_CV.pdf'
 import { mdiDiscord } from '@mdi/js';
 import Icon from "@mdi/react";
 

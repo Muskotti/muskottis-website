@@ -19,8 +19,7 @@ export default class Portfolio extends React.Component {
   componentDidMount() {
     fetch('https://api.github.com/users/Muskotti/repos')
       .then(response => response.json())
-      .then(data => this.setState({ data }))
-      .then(() => console.log(this.state.data));
+      .then(data => this.setState({ data }));
   }
 
   render() {
